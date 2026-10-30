@@ -2,7 +2,15 @@ class Main {
     constructor() {
         this.pageViewsKey = 'pageViewsCount';
         this.initializeCounter();
-        this.displayCount();
+        // this.displayCount();
+        document.getElementById("blueid").addEventListener('click', (event) => {
+            this.incrementCount();
+            alert(localStorage.getItem(this.pageViewsKey));
+            this.displayCount();
+        });
+        document.addEventListener('keypress', (event) => {
+            alert(`${event.key}`);
+        });
     }
 
     initializeCounter() {
@@ -18,9 +26,9 @@ class Main {
     }
 
     displayCount() {
-        this.incrementCount();
+        // this.incrementCount();
         // Update count in div id count
-        document.getElementById('count').innerHTML = 'You have visited this page ' + localStorage.getItem(this.pageViewsKey)  + ' times.'
+        document.getElementById('count').innerHTML = 'You have bothered blue ' + localStorage.getItem(this.pageViewsKey)  + ' times.'
     }
 }
 
